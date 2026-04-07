@@ -307,11 +307,10 @@ export const updateTaskStatus = async (req, res) => {
 
 
 
-// Add this inside Usercontrollers.js
 
 export const getDailyTasks = async (req, res) => {
   const userId = req.user._id;
-  const { date } = req.query; // User can request a specific date (YYYY-MM-DD)
+  const { date } = req.query; 
 
   try {
     // Agar date aayi hai toh wo use karo, nahi toh aaj ki date
@@ -335,13 +334,10 @@ export const getDailyTasks = async (req, res) => {
       const startDate = new Date(plan.startDate);
       startDate.setHours(0, 0, 0, 0);
 
-      // Calculate the difference in days
       const diffTime = targetDate.getTime() - startDate.getTime();
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-      // Agar plan start ho chuka hai
       if (diffDays >= 0) {
-        // Flatten all days to easily access Day[diffDays]
         const allDays = [];
         plan.months.forEach(month => {
           month.weeks.forEach(week => {
@@ -349,7 +345,6 @@ export const getDailyTasks = async (req, res) => {
           });
         });
 
-        // Agar plan abhi khtam nahi hua hai
         if (diffDays < allDays.length) {
           const currentDay = allDays[diffDays];
           todaysTasks.push({

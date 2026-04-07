@@ -198,9 +198,6 @@ const TodaysPlan = () => {
                         <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-purple-400 uppercase tracking-wider">
                           {plan.category}
                         </span>
-                        <span className="text-gray-500 text-sm font-medium">
-                          {plan.dayName}
-                        </span>
                       </div>
                       <h2 className="text-2xl font-bold text-white">
                         {plan.planTitle}
