@@ -6,6 +6,7 @@ import Roadmap from "./pages/Roadmap";
 import YearSet from "./pages/YearSet";
 import ModernNavbar from "./components/Navbar";
 import ModernFooter from "./components/Footer";
+import TodaysPlan from "./pages/Today-Plan";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/set-year" element={<YearSet />} />
-        <Route path="/todays-plan" element={<YearSet />} />
+        <Route path="/todays-plan" element={<TodaysPlan />} />
       </Routes>
       <ModernFooter />
     </div>
