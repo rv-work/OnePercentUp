@@ -31,9 +31,12 @@ const ModernNavbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/logout", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://onepercentup.onrender.com/api/auth/logout",
+        {
+          withCredentials: true,
+        },
+      );
       if (res.data.success) {
         setIsLoggedIn(false);
         toast.success("Logged out successfully");

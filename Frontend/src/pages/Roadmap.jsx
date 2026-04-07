@@ -34,11 +34,14 @@ const Roadmap = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/user/roadmap", {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-        });
+        const response = await fetch(
+          "https://onepercentup.onrender.com/api/user/roadmap",
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+          },
+        );
 
         const result = await response.json();
         if (result.success) {
@@ -109,7 +112,7 @@ const Roadmap = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/task/${dayId}/${taskNumber}`,
+        `https://onepercentup.onrender.com/api/user/task/${dayId}/${taskNumber}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
