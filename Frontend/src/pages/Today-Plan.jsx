@@ -23,7 +23,7 @@ const TodaysPlan = () => {
     try {
       const formattedDate = date.toISOString().split("T")[0];
       const response = await axios.get(
-        `http://localhost:5000/api/user/daily-tasks?date=${formattedDate}`,
+        `https://onepercentup.onrender.com/api/user/daily-tasks?date=${formattedDate}`,
         {
           withCredentials: true,
         },
@@ -71,7 +71,7 @@ const TodaysPlan = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/user/task/${dayId}/${taskNumber}`,
+        `https://onepercentup.onrender.com/api/user/task/${dayId}/${taskNumber}`,
         { done: newStatus },
         { withCredentials: true },
       );
