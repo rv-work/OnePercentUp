@@ -51,7 +51,7 @@ const ModernLogin = () => {
       if (data.success) {
         setIsLoggedIn(true);
         toast.success("Welcome back to the 1% club!");
-        navigate("/today-goal");
+        navigate("/roadmap");
       } else {
         setErrors({ general: data.message || "Login failed" });
       }
