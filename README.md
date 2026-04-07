@@ -25,21 +25,21 @@ Users simply input their macro-level goals for the year (e.g., "Master Full-Stac
 
 - **Domain Categorization:** Categorize goals across Tech, Career, Health, Finance, and Personal Growth.
 - **Smart Parameters:** Define start/end dates, daily time commitments, and execution intensity (Light, Medium, Aggressive).
-- **AI Generation:** The platform automatically generates a 365-day actionable plan based on your custom parameters.
+- **AI Generation:** The platform automatically generates a 365-day actionable plan based on your custom parameters utilizing Google's Gemini AI.
 
 ### 🗺️ Deep Drill-Down Roadmap
 
-- **Command Center:** A birds-eye view of all active missions and overall execution efficiency.
-- **Monthly Phases:** High-level targets broken down into 4-week execution blocks.
-- **Weekly Sprints:** Focused 7-day windows with specific sub-goals.
-- **Daily Action Plans:** The ground-level view where actual work happens. Check off daily micro-tasks to fuel your progress bars.
+- **Roadmap Overview:** A birds-eye view of all active missions and overall execution efficiency.
+- **Monthly Phases & Weekly Sprints:** High-level targets broken down into 4-week execution blocks and focused 7-day windows.
+- **⚡ Daily Command Center:** Your ground-level execution hub. Focus entirely on "Today" with a dedicated, distraction-free dashboard.
+  - **Time Travel Navigator:** Seamlessly jump to past dates to review execution consistency or shift to future dates to prepare for upcoming missions.
+  - **Zero-Latency Execution:** Check off tasks with optimistic UI updates and watch your circular progress telemetry fill up in real-time without waiting for server responses.
 
 ### 📊 Advanced Telemetry & Analytics
 
 - **Velocity Trends:** Beautiful, interactive area charts tracking your weekly execution consistency.
 - **Domain Allocation:** Visual breakdowns of where you are spending your time and energy across different life categories.
-- **Daily Burn Rate:** Bar charts comparing assigned tasks vs. completed tasks.
-- **Real-time Progress:** Every checked task instantly recalculates your daily, weekly, and monthly completion percentages using optimistic UI updates for a lightning-fast experience.
+- **Daily Burn Rate:** Bar charts comparing assigned tasks vs. completed tasks over a rolling 7-day window.
 
 ### 🎨 Elite "Deep Space" UI
 
@@ -65,6 +65,7 @@ OnePercent+ is built using a modern, scalable, and high-performance JavaScript s
 - **Node.js:** JavaScript runtime powering the high-speed server.
 - **Express.js:** Lightweight web application framework for building robust RESTful APIs.
 - **MongoDB:** NoSQL database used for flexibly storing complex, deeply nested user roadmaps, goals, and daily tracking data.
+- **Google Gemini AI SDK:** Powers the intelligent generation of the year-long micro-task roadmaps.
 
 ---
 

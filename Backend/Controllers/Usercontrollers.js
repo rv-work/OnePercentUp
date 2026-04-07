@@ -303,3 +303,79 @@ export const updateTaskStatus = async (req, res) => {
   }
 };
 
+
+
+
+
+// Add this inside Usercontrollers.js
+
+export const getDailyTasks = async (req, res) => {
+  const userId = req.user._id;
+  const { date } = req.query; // User can request a specific date (YYYY-MM-DD)
+
+  try {
+    // Agar date aayi hai toh wo use karo, nahi toh aaj ki date
+    const targetDate = date ? new Date(date) : new Date();
+    targetDate.setHours(0, 0, 0, 0);
+
+    const activePlans = await AIModel.find({ userId })
+      .populate({
+        path: 'months',
+        populate: {
+          path: 'weeks',
+          populate: { path: 'days' }
+        }
+      });
+
+    let todaysTasks = [];
+
+    activePlans.forEach(plan => {
+      if (!plan.startDate) return;
+
+      const startDate = new Date(plan.startDate);
+      startDate.setHours(0, 0, 0, 0);
+
+      // Calculate the difference in days
+      const diffTime = targetDate.getTime() - startDate.getTime();
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      // Agar plan start ho chuka hai
+      if (diffDays >= 0) {
+        // Flatten all days to easily access Day[diffDays]
+        const allDays = [];
+        plan.months.forEach(month => {
+          month.weeks.forEach(week => {
+            allDays.push(...week.days);
+          });
+        });
+
+        // Agar plan abhi khtam nahi hua hai
+        if (diffDays < allDays.length) {
+          const currentDay = allDays[diffDays];
+          todaysTasks.push({
+            planId: plan._id,
+            planTitle: plan.title,
+            category: plan.category,
+            dayId: currentDay._id,
+            dayName: currentDay.dayName,
+            progress: currentDay.progress,
+            tasks: currentDay.tasks
+          });
+        }
+      }
+    });
+
+    res.status(200).json({
+      success: true,
+      targetDate: targetDate,
+      data: todaysTasks
+    });
+
+  } catch (error) {
+    console.error("Error fetching daily tasks:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch daily tasks"
+    });
+  }
+};

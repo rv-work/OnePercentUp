@@ -8,6 +8,7 @@ import {
   Target,
   Home,
   Activity,
+  Calendar,
 } from "lucide-react";
 import { useAuth } from "../context/AuthConetx";
 import axios from "axios";
@@ -56,6 +57,7 @@ const ModernNavbar = () => {
         ...commonItems,
         { name: "Roadmap", href: "/roadmap", icon: Activity },
         { name: "Year Goal", href: "/set-year", icon: Target },
+        { name: "Today's Plan", href: "/todays-plan", icon: Calendar },
       ];
     } else {
       return [...commonItems];

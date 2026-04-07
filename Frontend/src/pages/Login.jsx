@@ -27,6 +27,14 @@ const ModernLogin = () => {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  const fillDemoCredentials = () => {
+    setFormData({
+      email: "demo@gmail.com",
+      password: "123456",
+    });
+    setErrors({});
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Simplified validation for demo
@@ -51,7 +59,7 @@ const ModernLogin = () => {
       if (data.success) {
         setIsLoggedIn(true);
         toast.success("Welcome back to the 1% club!");
-        navigate("/roadmap");
+        navigate("/todays-plan");
       } else {
         setErrors({ general: data.message || "Login failed" });
       }
@@ -64,7 +72,7 @@ const ModernLogin = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-12 flex items-center justify-center px-4 relative">
+    <div className="min-h-screen pt-30 pb-12 flex items-center justify-center px-4 relative">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -146,6 +154,14 @@ const ModernLogin = () => {
                 </button>
               </div>
             </div>
+
+            <button
+              type="button"
+              onClick={fillDemoCredentials}
+              className="w-full py-3 mt-2 border border-indigo-500/30 text-indigo-400 rounded-xl font-medium hover:bg-indigo-500/10 transition-all"
+            >
+              Use Demo Credentials
+            </button>
 
             {/* Submit Button */}
             <button

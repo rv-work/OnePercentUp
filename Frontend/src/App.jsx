@@ -17,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/set-year" element={<YearSet />} />
+        <Route path="/todays-plan" element={<YearSet />} />
       </Routes>
       <ModernFooter />
     </div>
