@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL, 
+  origin: process.env.FRONTEND_URL ,
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   credentials: true
 }));
@@ -33,7 +33,7 @@ app.get("/" , (req , res) => {
 
 connectDB()
 app.listen(5000 , () => {
-  console.log(`Server is ruunning successfully at  : http://localhost:5000`)
+  console.log(`Server is ruunning successfully at  : https://onepercentup.onrender.com`)
 })
 
 
